@@ -46,7 +46,7 @@ namespace AutomatedTests
         }
 
         [Test]
-        public void SignInUser_AddWrongPassword_ShowErrorText()
+        public void SignInUser_WrongPassword_ShowErrorText()
         {
 
             driver.Navigate().GoToUrl(SiteNavigation.HomePage);
@@ -56,9 +56,8 @@ namespace AutomatedTests
             driver.FindElement(By.Name("signInEmail")).SendKeys("admin@vetap.com");
             driver.FindElement(By.Name("signInPassword")).SendKeys("12345");
             driver.FindElement(By.Name("signInBtnSubmit")).Submit();
-            Task.Delay(1000).Wait();
-
-            Assert.IsNotNull(driver.FindElement(By.Id("signOutBtn")));
+            Task.Delay(2000).Wait();
+            Assert.IsTrue(driver.FindElement(By.Name("signInWorningMessage")).Text == "Pogrešna e-mail adresa ili lozinka.");
         }
 
 
