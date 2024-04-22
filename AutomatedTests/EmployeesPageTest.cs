@@ -8,7 +8,7 @@ namespace AutomatedTests
     internal class EmployeesPageTest : BaseTest
     {
         [Test]
-        public void EnployeesPage_CheckIfWorking()
+        public void EmployeesPage_CheckIfWorking()
         {
 
             driver.Navigate().GoToUrl(SiteNavigation.HomePage);
@@ -27,7 +27,7 @@ namespace AutomatedTests
         }
 
         [Test]
-        public void EnployeesPage_AddNewEmployee_CheckIfWorking()
+        public void EmployeesPage_AddNewEmployee_CheckIfWorking()
         {
 
             driver.Navigate().GoToUrl(SiteNavigation.HomePage);
@@ -46,7 +46,6 @@ namespace AutomatedTests
             Task.Delay(1000).Wait();
 
             driver.FindElement(By.Name("Rola")).SendKeys("admin");
-
 
             driver.FindElement(By.Name("Email")).SendKeys("test@vetap.com");
             driver.FindElement(By.Name("Ime")).SendKeys("Test");
@@ -77,7 +76,6 @@ namespace AutomatedTests
             driver.FindElement(By.Name("signInPassword")).SendKeys("12345");
             driver.FindElement(By.Name("signInBtnSubmit")).Submit();
             Task.Delay(2000).Wait();
-
 
             driver.FindElement(By.Name("sideBarEmployees")).Click();
             Task.Delay(500).Wait();
