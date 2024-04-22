@@ -1,23 +1,12 @@
 using AutomatedTests.Constants;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
-using OpenQA.Selenium.IE;
 
 namespace AutomatedTests
 {
-    public class Tests
+    public class SiteWorkingTest : BaseTest
     {
-        IWebDriver driver;
-        
 
-        [SetUp]
-        public void Setup()
-        {
-            driver = new EdgeDriver();
-            driver.Navigate().GoToUrl(SiteNavigation.HomePage);
-            (driver as IJavaScriptExecutor).ExecuteScript("localStorage.clear();");
-        }
 
         [Test]
         public void UnauthoziedUser_NavigateToSite()
@@ -61,21 +50,5 @@ namespace AutomatedTests
         }
 
 
-
-        [OneTimeTearDown]
-        public void OnTimeTearDown()
-
-        {
-            driver.Quit();
-           
-        }
-
-        [TearDown]
-        public void TearDown()
-
-        {
-
-            driver.Dispose();
-        }
     }
 }
